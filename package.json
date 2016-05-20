@@ -1,0 +1,34 @@
+{
+  "name": "3dage",
+  "version": "1.0.0",
+  "description": "3D Audio Game Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naugtur/3dage.git"
+  },
+  "keywords": [
+    "3d",
+    "audio",
+    "webaudio",
+    "game",
+    "interactive",
+    "audiobook",
+    "blind",
+    "accessibility"
+  ],
+  "author": "naugtur@gmail.com",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/naugtur/3dage/issues"
+  },
+  "homepage": "https://github.com/naugtur/3dage",
+  "dependencies": {
+    "howler": "^1.1.29",
+    "rx": "^4.1.0",
+    "vektor": "^0.3.0"
+  }
+}
