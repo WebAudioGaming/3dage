@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/naugtur/3dage",
   "dependencies": {
-    "howler": "^1.1.29",
+    "howler": "^2.0.0-beta13",
     "rx": "^4.1.0",
     "vektor": "^0.3.0"
   }
