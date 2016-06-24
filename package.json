@@ -4,8 +4,8 @@
   "description": "3D Audio Game Engine",
   "main": "index.js",
   "scripts": {
-      "test": "run-browser test/index.js -m test/mock/server.js -b | tap-spec",
-      "browser": "run-browser test/index.js -m test/mock/server.js "
+    "test": "run-browser test/index.js -m test/mock/server.js -b | tap-spec",
+    "browser": "run-browser test/index.js -m test/mock/server.js "
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/naugtur/3dage",
   "dependencies": {
     "howler": "^2.0.0-beta13",
+    "ramda": "^0.21.0",
     "rx": "^4.1.0",
     "vektor": "^0.3.0"
   },
