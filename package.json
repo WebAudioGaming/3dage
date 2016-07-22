@@ -4,7 +4,7 @@
   "description": "3D Audio Game Engine",
   "main": "index.js",
   "scripts": {
-    "test": "run-browser test/index.js -m test/mock/server.js -b | tap-spec",
+    "test": "standard ./lib/* ./test/* && run-browser test/index.js -m test/mock/server.js -b | tap-spec",
     "browser": "run-browser test/index.js -m test/mock/server.js "
   },
   "repository": {
@@ -34,7 +34,9 @@
     "vektor": "^0.3.0"
   },
   "devDependencies": {
+    "pre-commit": "^1.1.3",
     "run-browser": "naugtur/run-browser",
+    "standard": "^7.1.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1"
   }
