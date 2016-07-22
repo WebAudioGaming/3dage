@@ -1,2 +1,0 @@
-require('./library')
-//require('./renderer')
