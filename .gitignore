@@ -34,3 +34,6 @@ node_modules
 
 # dist (for now)
 dist
+
+# test bundle
+testbuild.js

@@ -1,18 +1,15 @@
 var webpack = require('webpack');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   entry: [
-      'mocha!./test/automated/index.js'
+      './test/automated/index.js'
   ],
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   output: {
-    path: './dist',
-    filename: 'test.js',
-    publicPath: '/'
-},
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080/test/automated/test.html', browser: 'chromium-browser' })
-  ]
+    path: '.',
+    filename: 'testbuild.js'
+    },
+    node: {
+      fs: "empty"
+    }
 };
