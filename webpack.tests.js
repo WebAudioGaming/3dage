@@ -4,7 +4,8 @@ module.exports = {
   entry: [
       './test/automated/index.js'
   ],
-  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
   output: {
     path: '.',
     filename: 'testbuild.js'

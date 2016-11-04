@@ -2,13 +2,13 @@ function runLibrary () {
   var libr1 = IIIdage._.library({
     sounds: {
       'hits': {
-        src: ['./resources/doh.wav'],
+        src: ['../resources/uu.mp3'],
         preload: true // I will have to force preload on those
       // 'load' event needs to be used to track preloading stuff to the library
       // but before plugging into an event, check instance's .state() to see if it's not loaded
       },
       'stuff': {
-        src: ['./resources/doh.wav'],
+        src: ['../resources/uu.mp3'],
         preload: true // I will have to force preload on those
       // 'load' event needs to be used to track preloading stuff to the library
       // but before plugging into an event, check instance's .state() to see if it's not loaded

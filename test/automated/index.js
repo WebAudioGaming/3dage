@@ -10,5 +10,5 @@ module.exports = context;
 
 
 test.onFinish(function(){
-    window.close()
+  window.close()
 })

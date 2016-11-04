@@ -6,8 +6,7 @@ function runRenderer () {
   var libr1 = IIIdage._.library({
     sounds: {
       hits: {
-        src: ['./resources/doh.wav'],
-        preload: true,
+        src: ['../resources/uu.mp3'],
         loop: true
       }
     }

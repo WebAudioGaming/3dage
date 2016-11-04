@@ -8,7 +8,10 @@
     "build-tests": "webpack --config webpack.tests.js",
     "start": "webpack -w",
     "lint": "standard ./lib/* ./test/*",
-    "test-auto": "npm run build-tests && browser-run < ./testbuild.js | faucet",
+    "test-auto": "npm run build-tests && browser-run --static ./test/resources < ./testbuild.js | faucet",
+    "test-ff": "browser-run -b firefox --static ./test/resources < ./testbuild.js | faucet",
+    "test-chrome": "browser-run -b chrome --static ./test/resources < ./testbuild.js | faucet",
+    "test-heads": "npm run build-tests && npm-run-all --parallel test-ff test-chrome",
     "test": "npm-run-all --parallel test-auto lint"
   },
   "repository": {
@@ -32,18 +35,22 @@
   },
   "homepage": "https://github.com/naugtur/3dage",
   "dependencies": {
-    "howler": "^2.0.0-beta13",
-    "ramda": "^0.21.0",
+    "howler": "^2.0.1",
+    "ramda": "^0.22.1",
     "rx": "^4.1.0",
-    "vektor": "^0.3.0"
+    "standard": "^8.5.0",
+    "vektor": "^0.3.0",
+    "webpack": "^1.13.3"
   },
   "devDependencies": {
     "browser-run": "^3.3.0",
+    "check-more-types": "^2.23.0",
     "faucet": "0.0.1",
     "npm-run-all": "^3.1.1",
     "pre-commit": "^1.1.3",
     "standard": "^7.1.2",
     "tape": "^4.6.2",
+    "tape-catch": "^1.0.6",
     "webpack": "^1.13.1"
   }
 }
