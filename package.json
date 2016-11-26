@@ -7,7 +7,7 @@
     "build": "webpack --bail",
     "build-tests": "webpack --config webpack.tests.js",
     "start": "webpack -w",
-    "lint": "standard ./lib/* ./test/*",
+    "lint": "standard ./lib/* ./test/* ./mixins/*",
     "test-auto": "npm run build-tests && browser-run --static ./test/resources < ./testbuild.js | faucet",
     "test-ff": "browser-run -b firefox --static ./test/resources < ./testbuild.js | faucet",
     "test-chrome": "browser-run -b chrome --static ./test/resources < ./testbuild.js | faucet",
@@ -39,6 +39,7 @@
     "ramda": "^0.22.1",
     "rx": "^4.1.0",
     "standard": "^8.5.0",
+    "vectors": "^0.1.0",
     "vektor": "^0.3.0",
     "webpack": "^1.13.3"
   },

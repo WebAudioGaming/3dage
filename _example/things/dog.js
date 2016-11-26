@@ -1,21 +1,24 @@
 // incomplete
-var dog = Thing({
-  attributes: {
+var dogDefinition = {
+  is: ['dog'],
+  defaults: {
     r: 1,
-    v: 0.1,
-    dir: [],
-    pos: []
+    v: 0.1
   },
   sounds: {
-    'default': {
-      sound: ['bark', 'bark2'],
+    'ismoving': {
+      sound: ['step1','step2','step3'],
+      times: 1
+    },
+    'jumpstop': {
+      sound: ['jump'],
+      times: 1
+    },
+    'happy': {
+      sound: 'happy_bark',
       times: 2
     },
     'bark': {
-      sound: 'bark3',
-      times: 1
-    },
-    'default_action': {
       sound: 'bark3',
       times: 1
     }
@@ -27,11 +30,25 @@ var dog = Thing({
     },
     {
       to: player.position,
-      with: function (input, emit) {}
+      with: function (input) {
+        if(Math.abs(input.x - this.x)< 10 && Math.abs(input.y - this.y)< 10){
+          return "happy"
+        }
+      }
+    }
+    },
+    function(){
+      return this.position
+      .someMagicToEmitOnlyIfPositionStoppedChanging()
+      .map(function(){
+        return 'jumpstop'
+      })
     }
   ]
 
-})
+}
 
-dog.mixIn(colliding)
-dog.mixIn(following)
+var movingAudibly = require('3dage/traits/movingAudibly')
+
+
+var dog = Thing(dogDefinition, movingAudibly, colliding, following)
