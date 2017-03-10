@@ -1,5 +1,5 @@
 var test = require('tape')
-var library = require('../../../../lib/sound/library')
+var library = require('../../../../../lib/sound/library')
 
 function soundMock (delay) {
   return {

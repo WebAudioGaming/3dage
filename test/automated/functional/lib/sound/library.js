@@ -1,5 +1,5 @@
 var test = require('tape-catch')
-var library = require('../../../../lib/sound/library')
+var library = require('../../../../../lib/sound/library')
 var noop = function () {}
 var rethrow = function (err) { throw err }
 var is = require('check-more-types')
