@@ -36,8 +36,8 @@
   "homepage": "https://github.com/naugtur/3dage",
   "dependencies": {
     "howler": "^2.0.1",
-    "ramda": "^0.22.1",
-    "rx": "^4.1.0",
+    "ramda": "^0.23.0",
+    "rxjs": "^5.3.0",
     "standard": "^8.5.0",
     "vectors": "^0.1.0",
     "vektor": "^0.3.0",

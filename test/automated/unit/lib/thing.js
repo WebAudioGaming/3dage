@@ -1,5 +1,5 @@
 var test = require('tape')
-var Rx = require('rx')
+var Rx = require('rxjs/Rx')
 var Thing = require('../../../../lib/thing')
 
 test('Things should be created with the common API', function (t) {
