@@ -21,7 +21,7 @@ test('Things should be created with the common API', function (t) {
 
   var some1
   t.doesNotThrow(function () {
-    some1 = something.spawn()
+    some1 = something.spawn({ tick: Rx.Observable.interval(100) })
   })
 
   console.log(some1)
@@ -45,7 +45,8 @@ test('Things should expose functions from definition as their methods', function
       }
     })
 
-    t.equal(typeof something.stubbyStub, 'function')
-    something.stubbyStub()
+    var some1 = something.spawn({ tick: Rx.Observable.interval(100) })
+    t.equal(typeof some1.stubbyStub, 'function')
+    some1.stubbyStub()
   })
 })
