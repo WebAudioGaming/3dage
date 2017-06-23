@@ -7,7 +7,7 @@ var dogDefinition = {
   },
   sounds: {
     'ismoving': {
-      sound: ['step1','step2','step3'],
+      sound: ['step1', 'step2', 'step3'],
       times: 1
     },
     'jumpstop': {
@@ -31,16 +31,15 @@ var dogDefinition = {
     {
       to: player.position,
       with: function (input) {
-        if(Math.abs(input.x - this.x)< 10 && Math.abs(input.y - this.y)< 10){
-          return "happy"
+        if (Math.abs(input.x - this.x) < 10 && Math.abs(input.y - this.y) < 10) {
+          return 'happy'
         }
       }
-    }
     },
-    function(){
+    function () {
       return this.position
       .someMagicToEmitOnlyIfPositionStoppedChanging()
-      .map(function(){
+      .map(function () {
         return 'jumpstop'
       })
     }
@@ -49,6 +48,5 @@ var dogDefinition = {
 }
 
 var movingAudibly = require('3dage/traits/movingAudibly')
-
 
 var dog = Thing(dogDefinition, movingAudibly, colliding, following)

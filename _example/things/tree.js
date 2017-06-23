@@ -10,7 +10,7 @@ var tree = Thing({
       times: 2
     },
     'leaves': {
-      sound: ['leaves_long','leaves2'],
+      sound: ['leaves_long', 'leaves2'],
       times: 1
     }
   },

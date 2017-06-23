@@ -4,15 +4,10 @@ function runLibrary () {
     sounds: {
       'hits': {
         src: ['../resources/uu.mp3'],
-        preload: true // I will have to force preload on those
-      // 'load' event needs to be used to track preloading stuff to the library
-      // but before plugging into an event, check instance's .state() to see if it's not loaded
+        loop: false // will not be repeated even if 'times:x' is used
       },
       'stuff': {
-        src: ['../resources/uu.mp3'],
-        preload: true // I will have to force preload on those
-      // 'load' event needs to be used to track preloading stuff to the library
-      // but before plugging into an event, check instance's .state() to see if it's not loaded
+        src: ['../resources/uu.mp3']
       }
     }
   })

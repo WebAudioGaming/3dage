@@ -36,13 +36,13 @@
   },
   "homepage": "https://github.com/naugtur/3dage",
   "dependencies": {
-    "howler": "^2.0.1",
+    "howler": "^2.0.4",
     "kefir": "^3.7.2",
     "ramda": "^0.23.0",
     "vectors": "^0.1.0"
   },
   "devDependencies": {
-    "browser-run": "^3.3.0",
+    "browser-run": "3.5.0",
     "check-more-types": "^2.23.0",
     "faucet": "0.0.1",
     "npm-run-all": "^3.1.1",
