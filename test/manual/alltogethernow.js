@@ -40,7 +40,7 @@ function runAll () {
     end: function () {
       console.log('library loaded', arguments)
 
-      var some1 = something.spawn(world, { v: 1, debug: 'hi' })
+      var some1 = something({ v: 1, debug: 'hi' }).spawn(world)
       IIIdage._.renderer.render(some1, libr1)
     }})
 }

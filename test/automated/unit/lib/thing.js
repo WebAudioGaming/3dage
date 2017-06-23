@@ -3,7 +3,7 @@ var Ke = require('kefir')
 var Thing = require('../../../../lib/thing')
 
 test('Things should be created with the common API', function (t) {
-  t.plan(5)
+  t.plan(6)
 
   var something
 
@@ -17,11 +17,12 @@ test('Things should be created with the common API', function (t) {
       }
     })
   })
-  t.equal(typeof something.spawn, 'function')
+  t.equal(typeof something, 'function')
+  t.equal(typeof something().spawn, 'function')
 
   var some1
   t.doesNotThrow(function () {
-    some1 = something.spawn({ tick: Ke.interval(100, 1) })
+    some1 = something().spawn({ tick: Ke.interval(100, 1) })
   })
 
   console.log(some1)
@@ -45,7 +46,7 @@ test('Things should expose functions from definition as their methods', function
       }
     })
 
-    var some1 = something.spawn({ tick: Ke.interval(100, 1) })
+    var some1 = something().spawn({ tick: Ke.interval(100, 1) })
     t.equal(typeof some1.stubbyStub, 'function')
     some1.stubbyStub()
   })
