@@ -1,5 +1,5 @@
 var test = require('tape')
-var Rx = require('rxjs/Rx')
+var Ke = require('kefir')
 var Thing = require('../../../../lib/thing')
 
 test('Things should be created with the common API', function (t) {
@@ -21,13 +21,13 @@ test('Things should be created with the common API', function (t) {
 
   var some1
   t.doesNotThrow(function () {
-    some1 = something.spawn({ tick: Rx.Observable.interval(100) })
+    some1 = something.spawn({ tick: Ke.interval(100, 1) })
   })
 
   console.log(some1)
 
-  t.ok(some1.sound instanceof Rx.Observable, 'thing::sound should be an observable')
-  t.ok(some1.position instanceof Rx.Observable, 'thing::position should be an observable')
+  t.ok(some1.sound instanceof Ke.Observable, 'thing::sound should be an observable')
+  t.ok(some1.position instanceof Ke.Observable, 'thing::position should be an observable')
 })
 
 test('Things should expose functions from definition as their methods', function (t) {
@@ -45,7 +45,7 @@ test('Things should expose functions from definition as their methods', function
       }
     })
 
-    var some1 = something.spawn({ tick: Rx.Observable.interval(100) })
+    var some1 = something.spawn({ tick: Ke.interval(100, 1) })
     t.equal(typeof some1.stubbyStub, 'function')
     some1.stubbyStub()
   })

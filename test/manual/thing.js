@@ -1,24 +1,24 @@
-/* global: IIIdage */
-var Rx = IIIdage.Rx
+/* global IIIdage */
+var Ke = IIIdage.Kefir
 
 // var scheduler = new Rx.TestScheduler()
 
 // Create hot observable which will start firing
 // var tick = scheduler.createHotObservable('-a-b-c', { a: 1, b: 2, c: 3 })
-var tick = Rx.Observable.interval(100)
-var trigger = Rx.Observable.interval(250)
+var tick = Ke.interval(100, 1)
+var trigger = Ke.interval(2000, 1)
 
 function runThing () {
   var something = IIIdage.Thing({
     is: ['some'],
     sounds: {
       'a': {
-        sound: 'knock'
+        sound: 'hits'
       }
     },
     reacts: [
       {
-        call: function(){ return trigger },
+        // call: function () { return trigger },
         to: trigger,
         with: 'a'
       }
@@ -33,14 +33,11 @@ function runThing () {
 
   console.log(some1)
 
-  // ts.expectObservable(actual$).toBe(expected, values);
-  // Rx.expectObservable(some1.position).toBe('-')
-
-  some1.position.subscribe(function (x) {
+  some1.position.observe(function (x) {
     // console.log('pos upd', x)
   })
 
-  some1.sound.subscribe(function (x) {
+  some1.sound.observe(function (x) {
     console.log('snd upd', x)
   })
 

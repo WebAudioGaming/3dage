@@ -1,3 +1,4 @@
+/* global IIIdage */
 function runLibrary () {
   var libr1 = IIIdage._.library({
     sounds: {
@@ -17,14 +18,14 @@ function runLibrary () {
   })
 
   // assert libr1.progress stream emits and ends
-  libr1.progress.subscribe(function (progressFraction) {
+  libr1.progress.observe(function (progressFraction) {
     console.log('progress', progressFraction)
     console.log('assert', progressFraction >= 0 && progressFraction <= 1)
   }, function (err) {
     throw err
   }, function () {
     console.log('done', arguments)
-    var sound1 = libr1.getPlayingSound('hits')
+    libr1.getPlayingSound('hits')
 
   // it ends, try playing a sound
   })

@@ -5,7 +5,7 @@ var rethrow = function (err) { throw err }
 var is = require('check-more-types')
 
 test('func>> should initialize library', function (t) {
-  t.plan(4)
+  t.plan(5)
   var libr1
   t.doesNotThrow(function () {
     libr1 = library({
@@ -21,13 +21,13 @@ test('func>> should initialize library', function (t) {
   })
 
   var progressValues = []
-  libr1.progress.subscribe(function (progressFraction) {
+  libr1.progress.observe(function (progressFraction) {
     progressValues.push(progressFraction)
-    t.ok(progressFraction > 0 && progressFraction < 1, 'progress value is a fraction')
+    t.ok(progressFraction >= 0 && progressFraction < 1, 'progress value is a fraction ' + progressFraction)
   }, function (err) {
     throw err
   }, function () {
-    t.deepEqual(progressValues, [ 0.5 ], 'progress was emitted for each load event')
+    t.deepEqual(progressValues, [ 0, 0.5 ], 'progress was emitted for each load event')
     t.pass('it finishes when all loaded')
   })
 })
@@ -46,7 +46,7 @@ test('func>> should play a sound', function (t) {
     })
   })
 
-  libr1.progress.subscribe(noop, rethrow, function () {
+  libr1.progress.observe(noop, rethrow, function () {
     t.pass('sound loaded')
 
     var sound1 = libr1.getPlayingSound('hits')

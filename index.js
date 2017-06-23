@@ -4,5 +4,6 @@ module.exports = {
     renderer: require('./lib/sound/renderer')
   },
   Thing: require('./lib/thing'),
-  Rx: require('rx')
+  World: require('./lib/world'),
+  Kefir: require('kefir')
 }

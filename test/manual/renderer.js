@@ -1,7 +1,6 @@
+/* global IIIdage */
 function runRenderer () {
-  var Rx = IIIdage.Rx
-
-  function noop () {}
+  var Ke = IIIdage.Kefir
 
   var libr1 = IIIdage._.library({
     sounds: {
@@ -11,15 +10,34 @@ function runRenderer () {
       }
     }
   })
+  // var thing1 = IIIdage.Thing({
+  //   is: ['some'],
+  //   sounds: {
+  //     'a': {
+  //       sound: 'hits'
+  //     }
+  //   },
+  //   reacts: [
+  //     {
+  //       to: Ke.later(300, 1),
+  //       with: 'a'
+  //     }
+  //   ]
+  // }).spawn({ tick: Ke.interval(100, 1) })
+
   var thing1 = {
-    sound: Rx.Observable.just({
-      name: 'hits',
-      count: 42
+    sound: Ke.constant({
+      sound: 'hits',
+      times: 42
     }),
-    position: Rx.Observable.interval(300)
-      .map(function (x) {
-        return [((x % 40) - 20) * 2, 40, 5]
-      })
+    position: Ke.fromPoll(300, (function () {
+      var x = 0
+      return function () {
+        return [((x++ % 40) - 20) * 2, 40, 5]
+      }
+    })())
+  }
+
   // circle, but it doesn't sound right
   // .map(ra.compose(ra.modulo(ra.__,36), ra.multiply(10 / 360 * 2 * Math.PI)))
   // .map(function(theta) {
@@ -29,13 +47,14 @@ function runRenderer () {
   //     var y = 0 - r * Math.sin(theta)
   //     return [x, y, 0]
   // })
-  }
 
-  libr1.progress.subscribe(noop, function (err) {
-    throw err
-  }, function () {
-    console.log('done', arguments)
+  libr1.progress.observe({
+    error: function (err) {
+      throw err
+    },
+    end: function () {
+      console.log('done', arguments)
 
-    IIIdage._.renderer.render(thing1, libr1)
-  })
+      IIIdage._.renderer.render(thing1, libr1)
+    }})
 }
