@@ -1,24 +1,15 @@
 var test = require('tape')
 var library = require('../../../../../lib/sound/library')
-
-function soundMock (delay, eventName) {
-  function fakelistener (name, cb) {
-    if (name === eventName) {
-      setTimeout(cb, delay || 0)
-    }
-  }
-  return {
-    once: fakelistener,
-    on: fakelistener,
-    state: function () {},
-    xsoundName: 'mock',
-    _src: 'howlerPrivateSrc'
-  }
-}
+var soundMock = require('../../soundMock')
 
 test('Sound library loading progressStream emits progress as expected', function (t) {
   t.plan(6)
-  var sources = [soundMock(1, 'load'), soundMock(2, 'load'), soundMock(3, 'load'), soundMock(4, 'load')]
+  var sources = [
+    soundMock({event: {delay: 1, name: 'load'}}),
+    soundMock({event: {delay: 2, name: 'load'}}),
+    soundMock({event: {delay: 3, name: 'load'}}),
+    soundMock({event: {delay: 4, name: 'load'}})
+  ]
   var progressStream = library._.preloadingProgressFromSources(sources)
 
   var progressValues = []
@@ -35,7 +26,12 @@ test('Sound library loading progressStream emits progress as expected', function
 
 test('Sound library loading progressStream errors out on failed sound', function (t) {
   t.plan(6)
-  var sources = [soundMock(1, 'load'), soundMock(2, 'loaderror'), soundMock(3, 'load'), soundMock(4, 'load')]
+  var sources = [
+    soundMock({event: {delay: 1, name: 'load'}}),
+    soundMock({event: {delay: 2, name: 'loaderror'}}),
+    soundMock({event: {delay: 3, name: 'load'}}),
+    soundMock({event: {delay: 4, name: 'load'}})
+  ]
   var progressStream = library._.preloadingProgressFromSources(sources)
 
   var progressValues = []

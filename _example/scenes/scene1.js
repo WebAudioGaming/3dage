@@ -15,6 +15,6 @@ var scene = IIIdage.Scene({
       z: 1
     })
   ]
-}).spawn()
+}).load().run()
 
 scene.things // array of spawned things
