@@ -1,6 +1,6 @@
 {
   "name": "3dage",
-  "version": "1.0.0-prealpha.1",
+  "version": "1.0.0-prealpha.2",
   "description": "3D Audio Game Engine",
   "main": "index.js",
   "scripts": {
