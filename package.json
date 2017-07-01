@@ -13,7 +13,8 @@
     "test-ff": "browser-run -b firefox --static ./test/resources < ./testbuild.js | faucet",
     "test-chrome": "browser-run -b chrome --static ./test/resources < ./testbuild.js | faucet",
     "test-heads": "npm run build-tests && npm-run-all --parallel test-ff test-chrome",
-    "test": "npm-run-all --parallel test-auto lint"
+    "test": "npm-run-all --parallel test-auto lint",
+    "ghpages": "ghpages -p gh-pages-sound"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "browser-run": "3.5.0",
     "check-more-types": "^2.23.0",
     "faucet": "0.0.1",
+    "ghpages": "0.0.10",
     "npm-run-all": "^3.1.1",
     "pre-commit": "^1.1.3",
     "standard": "^10.0.2",
