@@ -11,8 +11,7 @@ function runAll () {
   var libr1 = IIIdage._.library({
     sounds: {
       'hits': {
-        src: ['../resources/uu.mp3'],
-        preload: true // I will have to force preload on those
+        src: ['../resources/uu.mp3']
       }
     }
   })
