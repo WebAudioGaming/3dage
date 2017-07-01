@@ -20,7 +20,8 @@
     "url": "https://github.com/naugtur/3dage.git"
   },
   "files": [
-    "dist/3dage*"
+    "dist/3dage*",
+    "lib"
   ],
   "keywords": [
     "3d",
