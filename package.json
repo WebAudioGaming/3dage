@@ -19,6 +19,7 @@
     "type": "git",
     "url": "https://github.com/naugtur/3dage.git"
   },
+  "files": ["dist/3dage*"],
   "keywords": [
     "3d",
     "audio",
