@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --bail",
+    "prepublish": "npm run build",
     "build-tests": "webpack --config webpack.tests.js",
     "start": "webpack -w",
     "lint": "standard ./lib/* ./test/* ./mixins/*",
