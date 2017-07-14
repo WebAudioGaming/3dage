@@ -41,6 +41,10 @@ function runScene () {
   // })
   }).load().run()
 
+  setTimeout(function () {
+    scene.dev.trace(IIIdage.dev.preview.dom())
+  }, 500)
+
   window.scene = scene
   console.log('run scene.load() and then scene.run()')
 }
