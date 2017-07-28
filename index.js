@@ -6,5 +6,6 @@ module.exports = {
   Thing: require('./lib/thing'),
   Scene: require('./lib/scene'),
   World: require('./lib/world'),
-  Kefir: require('kefir')
+  Kefir: require('kefir'),
+  Howler: require('howler').Howler
 }

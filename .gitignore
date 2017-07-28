@@ -37,6 +37,7 @@ dist
 
 # test bundle
 testbuild.js
+test/manual/circle
 
 # sound sample hosting
 gh-pages-sound
