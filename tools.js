@@ -19,9 +19,8 @@ main.dev = {
           d.setAttribute('type', 'radio')
           document.body.appendChild(d)
         }
-        cache[thing.id].style.left = 10 * xyz[0] + offsetx + 'px'
-        cache[thing.id].style.top = -10 * xyz[1] + offsety + 'px'
-        cache[thing.id].style.zIndex = 10 * xyz[2] + 10000000
+        cache[thing.id].style.left = -10 * xyz[0] + offsetx + 'px'
+        cache[thing.id].style.top = -10 * xyz[2] + offsety + 'px'
       }
     }
   }
