@@ -25,7 +25,7 @@ var scene = IIIdage.Scene({
 
 //not good :()
 world.time.on({
-  120/*seconds*/: fly.do(burn).remove()
+  120/*seconds*/: fly.do('burn').remove()
 })
 
 scene.things // array of spawned things
